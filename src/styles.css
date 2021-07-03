@@ -4,7 +4,7 @@ my-content{
 }
 /* Dashed border */
 hr.dashed {
-  border-top: 3px dashed #bbb;
+  border-top: 0.3px dashed #eee;
 }
 
 /* Dotted border */

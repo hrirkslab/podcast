@@ -15,11 +15,12 @@ hr.dotted {
 /* Solid border */
 hr.solid {
   border-top: 0.3px solid #bbb;
-  width: 98%;
+  border-bottom: 0.3px solid #bbb;
+  width: 100%;
   align-self: center;
   align-items: center;
   align-content: center;
-  height: 5px;
+  height: 25px;
 }
 
 /* Rounded border */

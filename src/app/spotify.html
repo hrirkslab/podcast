@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Spotify Web Playback SDK Quick Start Tutorial</title>
+</head>
+<body>
+  <h1>Spotify Web Playback SDK Quick Start Tutorial</h1>
+  <h2>Open your console log: <code>View > Developer > JavaScript Console</code></h2>
+
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+  <script>
+    window.onSpotifyWebPlaybackSDKReady = () => {
+      const token = 'BQBEagy9c6B92bHpk-LkDAqrnshMkL3ITzNYoYelwQ-Uoz9qZOij43w-yuERnUlW3_4hcr5KnVwmuPm1L5GvCzd4HzsCYQxx0M21zR_LC4SZwGdqQ_jjXjpwZgLTmzavg_oKwnFOI4hGo2n_jJOq2fY-wOnIO4Y7S_lPgtyaNJrhZ1fNJSuiD-JziJCz---E0SgBa5wWwL2PgndGAPvOIzcPGqqkGDapKw0XEo0klHjsTcE-7xHDxPphg8r8my8PG8w_rADOD05TKOQ7TpS_ZpESVEGIsMob3gXUTErl';
+      const player = new Spotify.Player({
+        name: 'Web Playback SDK Quick Start Player',
+        getOAuthToken: cb => { cb(token); }
+      });
+
+      // Error handling
+      player.addListener('initialization_error', ({ message }) => { console.error(message); });
+      player.addListener('authentication_error', ({ message }) => { console.error(message); });
+      player.addListener('account_error', ({ message }) => { console.error(message); });
+      player.addListener('playback_error', ({ message }) => { console.error(message); });
+
+      // Playback status updates
+      player.addListener('player_state_changed', state => { console.log(state); });
+
+      // Ready
+      player.addListener('ready', ({ device_id }) => {
+        console.log('Ready with Device ID', device_id);
+      });
+
+      // Not Ready
+      player.addListener('not_ready', ({ device_id }) => {
+        console.log('Device ID has gone offline', device_id);
+      });
+
+      // Connect to the player!
+      player.connect();
+    };
+  </script>
+</body>
+</html>
+
+<iframe allow="autoplay *; encrypted-media *; fullscreen *" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.podcasts.apple.com/us/podcast/artificial-intelligence-a-i-conjointment/id1571348520"></iframe>

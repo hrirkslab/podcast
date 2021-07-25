@@ -41,6 +41,6 @@ div-solid{
 .center {
   margin: auto;
   width: 50%;
-  border: 3px solid green;
+  border: 0.1px solid #eee;
   padding: 10px;
 }
